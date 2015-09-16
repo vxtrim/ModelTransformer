@@ -1,0 +1,39 @@
+{
+    "name": "fivelab/model-transformer",
+    "description": "Transform object to another objects",
+    "keywords": [ "transformer", "model", "object", "model transformer" ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vitaliy Zhuk",
+            "email": "v.zhuk@fivelab.org"
+        },
+
+        {
+            "name": "FiveLab Team",
+            "email": "dev@fivelab.org",
+            "homepage": "http://fivelab.org"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.4",
+        "fivelab/exception": "~1.0",
+        "fivelab/reflection": "~1.0"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+
+    "suggest": {
+        "doctrine/annotations": "For use annotations in transformation",
+        "fivelab/cache": "For use cached metadata",
+        "symfony/expression-language": "For get transformed data with used Symfony ExpressionLanguage"
+    },
+
+    "autoload": {
+        "psr-4": { "FiveLab\\Component\\ModelTransformer\\": "src/" }
+    }
+}
