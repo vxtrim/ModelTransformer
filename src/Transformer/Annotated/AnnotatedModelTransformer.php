@@ -84,16 +84,14 @@ class AnnotatedModelTransformer implements ModelTransformerInterface, ModelTrans
         $transformedReflection = Reflection::loadClassReflection($transformedClass);
         $transformed = $transformedReflection->newInstanceWithoutConstructor();
 
-        $objectReflection = Reflection::loadClassReflection($object);
-
         foreach ($transformProperties as $transformPropertyName => $propertyMetadata) {
             try {
-                $objectPropertyReflection = $objectReflection->getProperty($transformPropertyName);
+                $objectPropertyReflection = Reflection::loadPropertyReflection($object, $transformPropertyName);
             } catch (\ReflectionException $e) {
                 throw new \RuntimeException(sprintf(
                     'Error transform property: Not found property "%s" in class "%s".',
                     $transformPropertyName,
-                    $objectReflection->getName()
+                    get_class($object)
                 ), 0, $e);
             }
 
