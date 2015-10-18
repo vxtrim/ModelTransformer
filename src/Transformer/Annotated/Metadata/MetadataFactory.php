@@ -103,6 +103,6 @@ class MetadataFactory implements MetadataFactoryInterface
             }
         }
 
-        return new ObjectMetadata($objectAnnotation->transformedClass, $properties);
+        return new ObjectMetadata($objectAnnotation->transformedClass, $objectAnnotation->evaluateConstructor, $properties);
     }
 }

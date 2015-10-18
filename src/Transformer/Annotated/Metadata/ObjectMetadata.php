@@ -28,15 +28,20 @@ class ObjectMetadata
      */
     private $properties;
 
+    /** @var  bool */
+    private $evaluateConstructor;
+
     /**
      * Construct
      *
      * @param string                   $transformedClass
+     * @param bool                     $evaluateConstructor
      * @param array|PropertyMetadata[] $properties
      */
-    public function __construct($transformedClass, array $properties)
+    public function __construct($transformedClass, $evaluateConstructor, array $properties)
     {
         $this->transformedClass = $transformedClass;
+        $this->evaluateConstructor = $evaluateConstructor;
         $this->properties = $properties;
     }
 
@@ -48,6 +53,16 @@ class ObjectMetadata
     public function getTransformedClass()
     {
         return $this->transformedClass;
+    }
+
+    /**
+     * Return true if need evaluate constructor
+     *
+     * @return boolean
+     */
+    public function isEvaluateConstructor()
+    {
+        return $this->evaluateConstructor;
     }
 
     /**

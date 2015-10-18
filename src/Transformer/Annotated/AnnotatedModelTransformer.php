@@ -82,7 +82,9 @@ class AnnotatedModelTransformer implements ModelTransformerInterface, ModelTrans
         // Try create transformed
         $transformedClass = $metadata->getTransformedClass();
         $transformedReflection = Reflection::loadClassReflection($transformedClass);
-        $transformed = $transformedReflection->newInstanceWithoutConstructor();
+        $transformed = ($metadata->isEvaluateConstructor())
+            ? $transformedReflection->newInstance()
+            : $transformedReflection->newInstanceWithoutConstructor();
 
         foreach ($transformProperties as $transformPropertyName => $propertyMetadata) {
             try {

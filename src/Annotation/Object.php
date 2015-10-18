@@ -23,4 +23,7 @@ class Object
 {
     /** @var string @Required */
     public $transformedClass;
+
+    /** @var string*/
+    public $evaluateConstructor = false;
 }
