@@ -25,5 +25,5 @@ class Object
     public $transformedClass;
 
     /** @var string*/
-    public $evaluateConstructor = false;
+    public $evaluateConstructor = true;
 }
