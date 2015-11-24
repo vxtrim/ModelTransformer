@@ -63,8 +63,11 @@ abstract class AbstractTraversableModelTransformer implements ModelTransformerIn
             ), 0, $e);
         }
 
+        // Try get a child context
+        $childContext = $context->getAttribute('child_context', null);
+
         foreach ($object as $key => $child) {
-            $transformed[$key] = $this->manager->transform($child);
+            $transformed[$key] = $this->manager->transform($child, $childContext);
         }
 
         return $transformed;

@@ -40,4 +40,29 @@ interface ContextInterface
      * @param string $group
      */
     public function hasGroup($group);
+
+    /**
+     * Set attributes
+     *
+     * @param array $attributes
+     */
+    public function setAttributes(array $attributes);
+
+    /**
+     * Set attribute
+     *
+     * @param string $attribute
+     * @param mixed  $value
+     */
+    public function setAttribute($attribute, $value);
+
+    /**
+     * Get attribute
+     *
+     * @param string $attribute
+     * @param mixed  $default
+     *
+     * @return string
+     */
+    public function getAttribute($attribute, $default = null);
 }

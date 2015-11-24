@@ -24,6 +24,11 @@ class Context implements ContextInterface
     private $groups = [];
 
     /**
+     * @var array
+     */
+    private $attributes = [];
+
+    /**
      * {@inheritDoc}
      */
     public function setGroups(array $groups)
@@ -47,5 +52,35 @@ class Context implements ContextInterface
     public function hasGroup($group)
     {
         return in_array($group, $this->groups, true);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAttributes(array $attributes)
+    {
+        foreach ($attributes as $attribute => $value) {
+            $this->setAttribute($attribute, $value);
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAttribute($attribute, $value)
+    {
+        $this->attributes[$attribute] = $value;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAttribute($attribute, $default = null)
+    {
+        return isset($this->attributes[$attribute]) ? $this->attributes[$attribute] : $default;
     }
 }
