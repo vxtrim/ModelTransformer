@@ -171,7 +171,7 @@ class AnnotatedModelTransformer implements ModelTransformerInterface, ModelTrans
         }
 
         // Check, if should use transformer for this value (recursive) and value is not null
-        if ($metadata->isShouldTransform() and $value !== null) {
+        if ($metadata->isShouldTransform() && $value !== null) {
             if (!is_object($value)) {
                 throw new TransformationFailedException(sprintf(
                     'Can not transform property "%s" in class "%s". The value must be a object, but "%s" given.',
