@@ -170,8 +170,8 @@ class AnnotatedModelTransformer implements ModelTransformerInterface, ModelTrans
             $value = $this->expressionLanguage->evaluate($metadata->getExpressionValue(), $attributes);
         }
 
-        // Check, if should use transformer for this value (recursive)
-        if ($metadata->isShouldTransform()) {
+        // Check, if should use transformer for this value (recursive) and value is not null
+        if ($metadata->isShouldTransform() and $value !== null) {
             if (!is_object($value)) {
                 throw new TransformationFailedException(sprintf(
                     'Can not transform property "%s" in class "%s". The value must be a object, but "%s" given.',
